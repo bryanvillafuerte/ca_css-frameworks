@@ -1,0 +1,34 @@
+{
+  "name": "ca_css-frameworks",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "sass src/scss:dist/css",
+    "watch": "sass --watch src/scss:dist/css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Enirose/ca_css-frameworks.git"
+  },
+  "keywords": [
+    "social media",
+    "bootstrap",
+    "scss",
+    "live-server"
+  ],
+  "author": "Ma Enirose Hellum <enirosehellum@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Enirose/ca_css-frameworks/issues"
+  },
+  "homepage": "https://github.com/Enirose/ca_css-frameworks#readme",
+  "devDependencies": {
+    "live-server": "^1.2.2",
+    "sass": "^1.55.0"
+  },
+  "dependencies": {
+    "bootstrap": "^5.2.2"
+  }
+}
