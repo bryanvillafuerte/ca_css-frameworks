@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="A social media app where you can connect with your friends and family">
+    <meta name="description" content="Home page of WeConnect social media app where you can check update of your family and friends">
+    <script src="https://kit.fontawesome.com/b78b269c14.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/dist/css/scripts.css">
-    <title>WE</title>
+    <title>WeConnect|Home</title>
 </head>
 <body>
     <header>
@@ -19,10 +20,10 @@
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                   <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    <a class="nav-link active" aria-current="page" href="home.html">Home</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#">Profile</a>
+                    <a class="nav-link" href="profile.html">Profile</a>
                   </li>
                 </ul>
                 <form class="d-flex" role="search">
@@ -34,7 +35,208 @@
           </nav>
     </header>
     <main>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 mt-5">
+                    <div class="card">
+                      <div class="card-body mb-4">
+                        <div class="d-flex flex-start w-100">
+                          <img class="rounded-circle shadow-1-strong me-3"
+                            src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(19).webp"  alt="avatar" width="65"
+                            height="65" />
+                          <div class="w-100">
+                            <h5>What's on your mind</h5>
+                            <div class="form-outline">
+                              <textarea class="form-control" id="textAreaExample" rows="4"></textarea>
+                            </div>
+                            <div class="float-end mt-2 pt-1">
+                              <button type="button" class="btn btn-success">Post</button>
+                              <button type="button" class="btn btn-danger">Cancel</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </div>
 
+                <!-- Friends post -->
+                <div class="col-lg-12 mt-3">
+                    <div class="card">
+                      <div class="card-body mb-4">
+                        <div class="d-flex flex-start w-100">
+                          <img class="rounded-circle shadow-1-strong me-3"
+                            src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(29).webp" alt="avatar" width="60"
+                            height="60" />
+                          <div>
+                            <h6 class="fw-bold text-primary mb-1">Andria Torres</h6>
+                            <p class="text-muted small mb-0">
+                              Shared publicly - NOv 2022
+                            </p>
+                          </div>
+                        </div>
+            
+                        <p class="mt-3 mb-4 pb-2">
+                          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                          quis nostrud exercitation ullamco laboris nisi ut aliquip consequat.
+                        </p>
+            
+                        <div class="small d-flex justify-content-start">
+                          <a href="#!" class="d-flex align-items-center me-3">
+                            <i class="far fa-thumbs-up me-2"></i>
+                            <p class="mb-0">Like</p>
+                          </a>
+                          <a href="#!" class="d-flex align-items-center me-3">
+                            <i class="far fa-comment-dots me-2"></i>
+                            <p class="mb-0">Comment</p>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-12 mt-3">
+                    <div class="card">
+                      <div class="card-body mb-4">
+                        <div class="d-flex flex-start w-100">
+                          <img class="rounded-circle shadow-1-strong me-3"
+                            src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(18).webp" alt="avatar" width="60"
+                            height="60" />
+                          <div>
+                            <h6 class="fw-bold text-primary mb-1">Jane Smith</h6>
+                            <p class="text-muted small mb-0">
+                              Shared publicly - Nov 2022
+                            </p>
+                          </div>
+                        </div>
+            
+                        <p class="mt-3 mb-4 pb-2">
+                          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                          quis nostrud exercitation ullamco laboris nisi ut aliquip consequat.
+                        </p>
+            
+                        <div class="small d-flex justify-content-start">
+                          <a href="#!" class="d-flex align-items-center me-3">
+                            <i class="far fa-thumbs-up me-2"></i>
+                            <p class="mb-0">Like</p>
+                          </a>
+                          <a href="#!" class="d-flex align-items-center me-3">
+                            <i class="far fa-comment-dots me-2"></i>
+                            <p class="mb-0">Comment</p>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-12 mt-3">
+                    <div class="card">
+                      <div class="card-body mb-4">
+                        <div class="d-flex flex-start w-100">
+                          <img class="rounded-circle shadow-1-strong me-3"
+                            src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(10).webp" alt="avatar" width="60"
+                            height="60" />
+                          <div>
+                            <h6 class="fw-bold text-primary mb-1">Madeleine Juliana</h6>
+                            <p class="text-muted small mb-0">
+                              Shared publicly - Oct 2022
+                            </p>
+                          </div>
+                        </div>
+            
+                        <p class="mt-3 mb-4 pb-2">
+                          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                          quis nostrud exercitation ullamco laboris nisi ut aliquip consequat.
+                        </p>
+            
+                        <div class="small d-flex justify-content-start">
+                          <a href="#!" class="d-flex align-items-center me-3">
+                            <i class="far fa-thumbs-up me-2"></i>
+                            <p class="mb-0">Like</p>
+                          </a>
+                          <a href="#!" class="d-flex align-items-center me-3">
+                            <i class="far fa-comment-dots me-2"></i>
+                            <p class="mb-0">Comment</p>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-12 mt-3">
+                    <div class="card">
+                      <div class="card-body mb-4">
+                        <div class="d-flex flex-start w-100">
+                          <img class="rounded-circle shadow-1-strong me-3"
+                            src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(31).webp" alt="avatar" width="60"
+                            height="60" />
+                          <div>
+                            <h6 class="fw-bold text-primary mb-1">Elizabeth Franciska</h6>
+                            <p class="text-muted small mb-0">
+                              Shared publicly - Oct 2022
+                            </p>
+                          </div>
+                        </div>
+            
+                        <p class="mt-3 mb-4 pb-2">
+                          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                          quis nostrud exercitation ullamco laboris nisi ut aliquip consequat.
+                        </p>
+            
+                        <div class="small d-flex justify-content-start">
+                          <a href="#!" class="d-flex align-items-center me-3">
+                            <i class="far fa-thumbs-up me-2"></i>
+                            <p class="mb-0">Like</p>
+                          </a>
+                          <a href="#!" class="d-flex align-items-center me-3">
+                            <i class="far fa-comment-dots me-2"></i>
+                            <p class="mb-0">Comment</p>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-12 mt-3">
+                    <div class="card">
+                      <div class="card-body mb-4">
+                        <div class="d-flex flex-start w-100">
+                          <img class="rounded-circle shadow-1-strong me-3"
+                            src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(11).webp" alt="avatar" width="60"
+                            height="60" />
+                          <div>
+                            <h6 class="fw-bold text-primary mb-1">Loraine Jane</h6>
+                            <p class="text-muted small mb-0">
+                              Shared publicly - Sept 2022
+                            </p>
+                          </div>
+                        </div>
+            
+                        <p class="mt-3 mb-4 pb-2">
+                          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                          quis nostrud exercitation ullamco laboris nisi ut aliquip consequat.
+                        </p>
+            
+                        <div class="small d-flex justify-content-start">
+                          <a href="#!" class="d-flex align-items-center me-3">
+                            <i class="far fa-thumbs-up me-2"></i>
+                            <p class="mb-0">Like</p>
+                          </a>
+                          <a href="#!" class="d-flex align-items-center me-3">
+                            <i class="far fa-comment-dots me-2"></i>
+                            <p class="mb-0">Comment</p>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
     </main>
     <footer>
 
