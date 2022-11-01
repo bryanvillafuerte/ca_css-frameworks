@@ -2,6 +2,7 @@
 
 // Original bootstrap style
 @import "../../node_modules/bootstrap/scss/bootstrap";
+
 // card
 .card-img-top,
 .card-img-bottom {
@@ -12,6 +13,11 @@
 }
 
 // NAV
+.navbar {
+  background-color: $white;
+  font-weight: 600;
+}
+
 .nav-link:hover {
-    color: $secondary;
+  background-color: $secondary;
 }
