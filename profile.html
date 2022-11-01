@@ -13,17 +13,17 @@
     <header>
         <nav class="navbar navbar-expand-lg bg-light">
             <div class="container-fluid">
-              <a class="navbar-brand" href="home.html">WeConnect</a>
+              <a class="navbar-brand" href="home.html">We<b><font color=orange>Connect</font></b></a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                   <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="home.html">Home</a>
+                    <a class="nav-link" href="home.html">Home</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="profile.html">Profile</a>
+                    <a class="nav-link active" aria-current="page" href="profile.html">Profile</a>
                   </li>
                 </ul>
                 <form class="d-flex" role="search">
@@ -37,7 +37,7 @@
     <main>
         <div class="container">
             <div class="row">
-                <div class="col-lg-4 mt-5">
+                <div class="col-sm-12 col-md-5 col-lg-4  mt-5">
                   <div class="card mb-4">
                     <div class="card-body text-center">
                       <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(19).webp"  alt="users picture"
@@ -91,38 +91,41 @@
                       </div>
                     </div>
                 </div>
+
+                <!-- Friendlist -->
                 <div class="card mb-2">
-                    <h2 class="card-title mt-3 ms-3 mb-5">Friends</h2>
+                    <h2 class="card-title mt-3 ms-3 mb-1">Friends</h2>
                     <div class="card-body mb-4 text-center">
-                      <a href="#">
-                        <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(31).webp" alt="users profile picture" class="card-img-bottom m-1"/>
-                      </a>
-                      <a href="#">
-                        <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(10).webp" alt="users profile picture" class="card-img-bottom m-1"/>
-                      </a>
-                      <a href="#">
-                        <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(11).webp" alt="users profile picture" class="card-img-bottom m-1"/>
-                      </a>
-                      <a href="#">
-                        <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(32).webp" alt="users profile picture" class="card-img-bottom m-1"/>
-                      </a>
-                      <a href="#">
-                        <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(12).webp" alt="users profile picture" class="card-img-bottom m-1"/>
-                      </a>
-                      <a href="#">
-                        <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(8).webp" alt="users profile picture" class="card-img-bottom m-1"/>
-                      </a>
-                      <a href="#">
-                        <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(29).webp" alt="users profile picture" class="card-img-bottom m-1"/>
-                      </a>
-                      <a href="#">
-                        <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(18).webp" alt="users profile picture" class="card-img-bottom m-1"/>
-                      </a>
+                        <a href="#">
+                            <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(31).webp" alt="users profile picture" class="card-img-top"/>
+                        </a>
+                        <a href="#">
+                            <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(10).webp" alt="users profile picture" class="card-img-top"/>
+                        </a>
+                        <a href="#">
+                            <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(11).webp" alt="users profile picture" class="card-img-top"/>
+                        </a>
+                        <a href="#">
+                            <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(32).webp" alt="users profile picture" class="card-img-top"/>
+                        </a>
+                        <a href="#">
+                            <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(12).webp" alt="users profile picture" class="card-img-top"/>
+                        </a>
+                        <a href="#">
+                            <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(8).webp" alt="users profile picture" class="card-img-top"/>
+                        </a>
+                        <a href="#">
+                            <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(29).webp" alt="users profile picture" class="card-img-top"/>
+                        </a>
+                        <a href="#">
+                            <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(18).webp" alt="users profile picture" class="card-img-top"/>
+                        </a>
                     </div>
                 </div>
             </div>
 
-            <div class="col-lg-8 mt-5">
+            <!-- Wall Posts -->
+            <div class="col-lg-8 col-md-7 mt-5">
                 <div class="card">
                   <div class="card-body mb-4">
                     <div class="d-flex flex-start w-100">
@@ -132,7 +135,7 @@
                       <div class="w-100">
                         <h5>What's on your mind</h5>
                         <div class="form-outline">
-                          <textarea class="form-control" id="textAreaExample" rows="4"></textarea>
+                          <textarea class="form-control" id="textAreaExample" rows="2"></textarea>
                         </div>
                         <div class="float-end mt-2 pt-1">
                           <button type="button" class="btn btn-success">Post</button>
@@ -181,8 +184,8 @@
                                 src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(19).webp" alt="avatar" width="40"
                                 height="40" />
                               <div class="form-outline w-100">
-                                <textarea class="form-control" id="textAreaExample" rows="4"style="background: #fff;"></textarea>
-                                <div class="d-flex justify-content-between mt-3">
+                                <textarea class="form-control" id="textAreaExample" rows="1" style="background: #fff;"></textarea>
+                                <div class="float-end mt-2 pt-1">
                                     <button type="button" class="btn btn-success">Post</button>
                                     <button type="button" class="btn btn-danger">Cancel</button>
                                 </div>
