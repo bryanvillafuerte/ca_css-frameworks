@@ -2,5 +2,16 @@
 
 // Original bootstrap style
 @import "../../node_modules/bootstrap/scss/bootstrap";
+// card
+.card-img-top,
+.card-img-bottom {
+  max-width: 20%;
+  height: auto;
+  margin-top: 20px;
+  border-radius: 50%;
+}
 
-
+// NAV
+.nav-link:hover {
+    color: $secondary;
+}
