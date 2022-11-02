@@ -21,3 +21,21 @@
 .nav-link:hover {
   background-color: $secondary;
 }
+
+// Body
+main {
+  min-height: 100vh;
+}
+
+// cutomised btn
+.btn-primary-login {
+  background-color: $secondary;
+  opacity: 0.6;
+  transition: 0.3s;
+  border: solid 1px black;
+}
+
+.btn-primary-login:hover {
+  opacity: 1;
+  background-color: $secondary;
+}

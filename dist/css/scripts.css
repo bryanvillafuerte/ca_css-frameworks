@@ -10788,4 +10788,20 @@ textarea.form-control-lg {
   background-color: #f2862e;
 }
 
+main {
+  min-height: 100vh;
+}
+
+.btn-primary-login {
+  background-color: #f2862e;
+  opacity: 0.6;
+  transition: 0.3s;
+  border: solid 1px black;
+}
+
+.btn-primary-login:hover {
+  opacity: 1;
+  background-color: #f2862e;
+}
+
 /*# sourceMappingURL=scripts.css.map */
