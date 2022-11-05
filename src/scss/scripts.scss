@@ -1,4 +1,5 @@
 @import "./components/variables";
+@import "./components/nav";
 
 // Original bootstrap style
 @import "../../node_modules/bootstrap/scss/bootstrap";
@@ -12,16 +13,6 @@
   border-radius: 50%;
 }
 
-// NAV
-.navbar {
-  background-color: $white;
-  font-weight: 600;
-}
-
-.nav-link:hover {
-  background-color: $secondary;
-}
-
 // Body
 main {
   min-height: 100vh;
@@ -29,13 +20,18 @@ main {
 
 // cutomised btn
 .btn-primary-login {
-  background-color: $secondary;
-  opacity: 0.6;
+  background-color: $primary;
+  color: var(--bs-black);
   transition: 0.3s;
-  border: solid 1px black;
+  border: solid 1px var(--bs-black);
 }
 
 .btn-primary-login:hover {
-  opacity: 1;
-  background-color: $secondary;
+  color: $secondary;
+  background-color: $primary;
+  border: solid 1px var(--bs-black);
+}
+
+a {
+  text-decoration: none;
 }
