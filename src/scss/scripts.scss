@@ -1,3 +1,37 @@
 @import "./components/variables";
+@import "./components/nav";
 
+// Original bootstrap style
 @import "../../node_modules/bootstrap/scss/bootstrap";
+
+// card
+.card-img-top,
+.card-img-bottom {
+  max-width: 20%;
+  height: auto;
+  margin-top: 20px;
+  border-radius: 50%;
+}
+
+// Body
+main {
+  min-height: 100vh;
+}
+
+// cutomised btn
+.btn-primary-login {
+  background-color: $primary;
+  color: var(--bs-black);
+  transition: 0.3s;
+  border: solid 1px var(--bs-black);
+}
+
+.btn-primary-login:hover {
+  color: $secondary;
+  background-color: $primary;
+  border: solid 1px var(--bs-black);
+}
+
+a {
+  text-decoration: none;
+}
