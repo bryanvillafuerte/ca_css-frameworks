@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A social media app where you can connect with your friends and family">
+    <script src="https://kit.fontawesome.com/b78b269c14.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/dist/css/scripts.css">
+    <title>WeConnect</title>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg bg-light">
+            <div class="container-fluid justify-content-center">
+                <a class="navbar-brand" href="home.html">
+                    We<b><font color=orange>Connect</font>
+                    </b></a>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="login mt-5 mb-2">
+            <div class="container text-center">
+                <div class="row">
+                    <div class="col-12 d-flex justify-content-center">
+                        <div class="card shadow col-12 col-md-6">
+                            <div class="card-body ">
+                                <h1 class="card-title mt-3">Register</h1>
+<!-- 
+                                /auth/register -->
+                                <form id="registrationForm" method="post" action="/index.html" 
+                                    class="text-start d-flex flex-column align-items-center">
+
+                                    <div class="form-group mb-3">
+                                        <label for="name" class="form-label">Username</label>
+                                        <input type="name" id="name" class="form-control" required pattern="^[\w]+$" title="User must contain upper and lower case, number and underscore(_)." />
+                                    </div>
+
+                                    <!-- Email input -->
+                                    <div class="form-group mb-3">
+                                        <label for="email" class="form-label">Email</label>
+                                        <input type="email" id="email" class="form-control"
+                                            required pattern="^[\w\-.]+@(stud.)?noroff.no$" title="Only the @(stud.)noroff.no domains are allowed to register." />
+                                    </div>
+
+
+                                    <!-- Password input -->
+                                    <div class="form-group mb-3">
+                                        <label for="password" class="form-label">Password</label>
+                                        <input type="password" id="password" class="form-control"
+                                            required minLength="8"/>
+                                    </div>
+
+                                    <button
+                                        class="btn btn-primary-login mt-4 mb-3 ps-8 pe-8 shadow text-uppercase btn-login">
+                                        Register
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="bg-light mt-4 p-2 text-center">
+        Copyright &copy; 2022 | Enirose Hellum
+    </footer>
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./src/js/handlers/register.mjs"></script>
+</body>
+
+</html>
