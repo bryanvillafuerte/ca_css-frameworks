@@ -29,11 +29,11 @@
                         <div class="card shadow col-12 col-md-6">
                             <div class="card-body ">
                                 <h1 class="card-title mt-3">Register</h1>
-<!-- 
-                                /auth/register -->
-                                <form id="registrationForm" method="post" action="/index.html" 
+
+                                <form id="registrationForm"
                                     class="text-start d-flex flex-column align-items-center">
 
+                                    <!-- Username input -->
                                     <div class="form-group mb-3">
                                         <label for="name" class="form-label">Username</label>
                                         <input type="name" id="name" class="form-control" required pattern="^[\w]+$" title="User must contain upper and lower case, number and underscore(_)." />
@@ -46,11 +46,10 @@
                                             required pattern="^[\w\-.]+@(stud.)?noroff.no$" title="Only the @(stud.)noroff.no domains are allowed to register." />
                                     </div>
 
-
                                     <!-- Password input -->
                                     <div class="form-group mb-3">
                                         <label for="password" class="form-label">Password</label>
-                                        <input type="password" id="password" class="form-control"
+                                        <input type="password" name="password" class="form-control"
                                             required minLength="8"/>
                                     </div>
 
@@ -70,7 +69,9 @@
         Copyright &copy; 2022 | Enirose Hellum
     </footer>
     <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="./src/js/handlers/register.mjs"></script>
+    <script src="/src/js/index.mjs" defer type="module"></script>
+    <script src="/src/js/handlers/register.mjs" defer type="module"></script>
+    
 </body>
 
 </html>
