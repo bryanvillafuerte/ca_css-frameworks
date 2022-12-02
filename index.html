@@ -26,25 +26,26 @@
                 <div class="card-body">
                   <h1 class="card-title mt-3">Login</h1>
 
-                  <form action="/profile.html" class="text-start d-flex flex-column align-items-center mt-5">
+                  <form id="loginForm" class="text-start d-flex flex-column align-items-center mt-5">
+
                     <!-- Email input -->
                     <div class="mb-3 ms-5 me-5">
                       <label for="email" class="form-label">Email</label>
-                      <input type="email" id="email" class="form-control" placeholder="your@email.com" required/>
+                      <input type="email" id="email" class="form-control" placeholder="your@email.com" required pattern="^[\w\-.]+@(stud.)?noroff.no$" title="Only the @(stud.)noroff.no domains are allowed to register."/>
                     </div>
 
                     <!-- Password input -->
                     <div class="mb-3 ms-5 me-5">
                       <label for="password" class="form-label">Password</label>
-                      <input type="password" id="password" class="form-control" placeholder="********" required/>
+                      <input type="password" id="password" class="form-control" placeholder="********" required minLength="8"/>
                     </div>
-                    <button type="submit" class="btn btn-primary-login mt-4 mb-3 ps-8 pe-8 shadow text-uppercase btn-login">login</button>
+                    <button type="submit" class="btn btn-primary-login mt-4 mb-3 ps-8 pe-8 shadow text-uppercase btn-login">Login</button>
                     
                     <!-- Register input -->
                     <div class="card-text mb-5">
                       Not a member?
                       <a class="text-decoration-underline" href="registration.html"
-                        >Registered</a>
+                        >Register</a>
                     </div>
                   </form>
                 </div>
@@ -59,6 +60,6 @@
     </footer>
     <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="/src/js/index.mjs" type="module"></script>
-    <script src="/src/js/handlers/registration.mjs" type="module"></script>
+    <!-- <script src="/src/js/handlers/register.mjs" type="module"></script> -->
 </body>
 </html>
