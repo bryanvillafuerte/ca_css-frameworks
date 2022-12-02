@@ -1,3 +1,4 @@
+import * as storage from "../../storage/localstorage.mjs"
 
 const method = "post";
 
@@ -11,8 +12,15 @@ export async function login(url, profile) {
         body: JSON.stringify(profile),
     });
 
-    const result = await response.json();
-    console.log(result);
+    const {accessToken, ...user} = await response.json();
 
-    localStorage.setItem("token", result.accessToken);
+    // localStorage.setItem("token", result.accessToken);
+    storage.save("token", accessToken)
+
+    storage.save("profile", user)
+
+    alert("You are now logged in")
 }
+
+// getting the token from localStorage
+// const token = localStorage.getItem("token");
