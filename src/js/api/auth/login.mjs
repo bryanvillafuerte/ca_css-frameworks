@@ -15,11 +15,12 @@ export async function login(url, profile) {
     const {accessToken, ...user} = await response.json();
 
     // localStorage.setItem("token", result.accessToken);
+    
     storage.save("token", accessToken)
 
     storage.save("profile", user)
 
-    alert("You are now logged in")
+    alert("You are now Logged in")
 }
 
 // getting the token from localStorage
