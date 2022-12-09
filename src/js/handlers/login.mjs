@@ -14,6 +14,7 @@ export function loginUser() {
             email: email,
             password: password,
         };
+        // Send it to API
         login(API_LOGIN_URL, profile);
     });
 

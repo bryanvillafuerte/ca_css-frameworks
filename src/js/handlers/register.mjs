@@ -16,6 +16,7 @@ export function registerForm() {
             email: email,
             password: password,
         };
+        // Send it to API
         console.log(profile);
         register(API_SOCIAL_URL, profile);
     });

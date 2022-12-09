@@ -4,9 +4,9 @@ import { BASE_URL } from "../api/auth/constants.mjs";
 const updateUrl = `/social/posts`;
 const method = "put";
 
-export async function updatePost(postData) {
+export async function updatePost(post) {
     const token = load("token");
-    const updatePostUrl = `${BASE_URL}${updateUrl}/${postData.id}`;
+    const updatePostUrl = `${BASE_URL}${updateUrl}/${post.id}`;
 
     const response = await fetch(updatePostUrl, {
         method,
@@ -14,7 +14,7 @@ export async function updatePost(postData) {
             "Content-Type": "application/json",
             "Authorization": `Bearer ${token}`
         },
-        body: JSON.stringify(postData),
+        body: JSON.stringify(post),
     });
     const postResult = await response.json();
     return postResult

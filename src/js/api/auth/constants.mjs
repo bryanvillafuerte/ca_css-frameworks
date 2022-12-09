@@ -5,3 +5,6 @@ export const API_SOCIAL_URL = `${BASE_URL}${register_URL}`;
 // login url
 export const login_URL = `/social/auth/login`;
 export const API_LOGIN_URL = `${BASE_URL}${login_URL}`;
+
+export const post_Url = `/social/posts`;
+export const API_POST_URL = `${BASE_URL}${post_Url}`;
