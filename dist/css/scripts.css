@@ -10806,4 +10806,8 @@ a {
   text-decoration: none;
 }
 
+.form-control {
+  padding: 0.375rem 1.75rem;
+}
+
 /*# sourceMappingURL=scripts.css.map */
