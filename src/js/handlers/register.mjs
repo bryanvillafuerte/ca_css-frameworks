@@ -2,6 +2,16 @@
 import { register } from "../api/auth/register.mjs";
 import { API_SOCIAL_URL } from "../api/auth/constants.mjs";
 
+/**
+ * API call to register new user
+ * and login user automatically
+ * @param {string} url
+ * @param {object} userData
+ * ```js
+ * registerForm(registerUrl, options);
+ * ```
+ */
+
 export function registerForm() {
     const form = document.querySelector("#registrationForm");
 
