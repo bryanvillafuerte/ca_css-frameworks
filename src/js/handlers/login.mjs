@@ -16,6 +16,10 @@ export function loginUser() {
         };
         // Send it to API
         login(API_LOGIN_URL, profile);
+
+        localStorage.setItem("user", JSON.stringify(profile));
+        
+        window.location.replace("/posts/")
     });
 
 }
