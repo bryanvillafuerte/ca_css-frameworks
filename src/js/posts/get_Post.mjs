@@ -18,10 +18,12 @@ export async function getPosts() {
         },
     });
 
-    return await response.json()
-    // const postResult = await response.json();
-    // return postResult
+    // const json = await response.json();
+    const postResult = await response.json();
+    return postResult
 }
+
+
 
 // Fetching specific post using id
 export async function get_specificPost(id) {
@@ -35,7 +37,8 @@ export async function get_specificPost(id) {
             "Authorization": `Bearer ${token}`
         },
     });
-    return await response.json()
-    // const postResult = await response.json();
-    // return postResult
+
+    // const json = await response.json();
+    const postResult = await response.json();
+    return postResult
 }

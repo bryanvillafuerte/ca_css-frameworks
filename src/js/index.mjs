@@ -8,7 +8,7 @@ import * as postMethod from "./posts/index.mjs"
 
 const path = window.location.pathname;
 
-if (path === '/index.html') {
+if (path === '/index.html' || path === '/') {
     handlerListener.loginUser();
 } else if (path === '/registration.html'){
     handlerListener.registerForm();
@@ -16,7 +16,7 @@ if (path === '/index.html') {
     handlerListener.createFormListener();
 } else if (path === '/post/edit/'){
     handlerListener.updateFormListener();
-}
+} 
 
 // (fetching specific post)
 // async function testTemplate(){
@@ -31,6 +31,7 @@ if (path === '/index.html') {
 
 
 // (FETCHING LIST ITEMS)
+
 async function testTemplate(){
     const posts = await postMethod.getPosts();
     const container = document.querySelector("#posts")

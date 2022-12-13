@@ -3,7 +3,6 @@ import * as storage from "../../storage/localstorage.mjs"
 const method = "post";
 
 export async function login(url, profile) {
-
     const response = await fetch(url, {
         method,
         headers: {
