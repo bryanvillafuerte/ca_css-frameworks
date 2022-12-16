@@ -12,30 +12,30 @@ if (path === '/index.html' || path === '/') {
     handlerListener.loginUser();
 } else if (path === '/registration.html'){
     handlerListener.registerForm();
-} else if (path === '/post/create/'){
+} else if (path === '/post/create/' || path === '/home.html' || path === '/profile.html' ){
     handlerListener.createFormListener();
 } else if (path === '/post/edit/'){
     handlerListener.updateFormListener();
 } 
 
 // (fetching specific post)
-// async function testTemplate(){
-//     const posts = await postMethod.getPosts();
-//     const post = posts[46] get a specific post
-//     const post = posts.pop (get/fetch a ramdom post)
-//     const container = document.querySelector("#post")
-//     renderPostTemplate(post, container)
-// }
+async function testTemplate(){
+    const posts = await postMethod.getPosts();
+    // const post = posts[46] get a specific post
+    const post = posts.pop 
+    const container = document.querySelector("#posts")
+    renderPostTemplate(posts, container)
+}
 
-// testTemplate ()
+testTemplate ()
 
 
 // (FETCHING LIST ITEMS)
 
-async function testTemplate(){
-    const posts = await postMethod.getPosts();
-    const container = document.querySelector("#posts")
-    templates.renderPostTemplates(posts, container)
-}
+// async function testTemplate(){
+//     const posts = await postMethod.getPosts();
+//     const container = document.querySelector("#posts")
+//     templates.renderPostTemplates(posts, container)
+// }
 
-testTemplate ()
+// testTemplate ()

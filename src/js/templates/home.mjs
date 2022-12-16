@@ -42,3 +42,5 @@ export function renderPostTemplates(postDataList, parent) {
     const postHTMLElements = postDataList.map(postTemplatePosts)
     parent.append (...postDataList.map(postTemplatePosts))
 }
+
+import { API_POST_URL } from "../api/auth/constants.mjs"
