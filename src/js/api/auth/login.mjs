@@ -21,6 +21,3 @@ export async function login(url, profile) {
 
     alert("You are now Logged in")
 }
-
-// getting the token from localStorage
-// const token = localStorage.getItem("token");

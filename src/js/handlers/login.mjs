@@ -19,10 +19,11 @@ export function loginUser() {
 
         localStorage.setItem("user", JSON.stringify(profile));
         
-        window.location.replace("/posts/")
+        window.location.replace("/home.html")
     });
 
 }
+
 
 // email: "enirose@noroff.no"
 // name: "Eni123"
