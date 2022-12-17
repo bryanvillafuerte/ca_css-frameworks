@@ -1,6 +1,11 @@
 import { load } from "../storage/localstorage.mjs";
 import { BASE_URL } from "../api/auth/constants.mjs";
 
+/**
+ * Deleting a post
+ * @param {string} id
+ */
+
 const updateUrl = `/social/posts`;
 const method = "delete";
 

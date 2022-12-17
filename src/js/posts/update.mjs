@@ -1,20 +1,26 @@
 import { load } from "../storage/localstorage.mjs";
 import { BASE_URL } from "../api/auth/constants.mjs";
 
+/**
+ * Edit/Update a post
+ * @param {object} body
+ * @returns
+ */
+
 const updateUrl = `/social/posts`;
 const method = "put";
 
-export async function updatePost(post) {
+export async function updatePost(body) {
     const token = load("token");
-    const updatePostUrl = `${BASE_URL}${updateUrl}/${post.id}`;
+    const updatePostUrl = `${BASE_URL}${updateUrl}/${id}`;
 
-    const response = await fetch(updatePostUrl, {
+    const response = await fetch(updatePost, {
         method,
         headers: {
             "Content-Type": "application/json",
             "Authorization": `Bearer ${token}`
         },
-        body: JSON.stringify(post),
+        body: JSON.stringify(body),
     });
     const postResult = await response.json();
     return postResult

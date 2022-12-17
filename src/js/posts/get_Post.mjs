@@ -6,9 +6,14 @@ const method = "get";
 
 // fetching post list
 
+/**
+ * Get all posts from user
+ * @returns
+ */
+
 export async function getPosts() {
     const token = load("token");
-    const getPostUrl = `${BASE_URL}${updateUrl}`;
+    const getPostUrl = `${BASE_URL}${updateUrl}/?_author=true&_reactions=true`;
 
     const response = await fetch(getPostUrl, {
         method,
@@ -26,9 +31,14 @@ export async function getPosts() {
 
 
 // Fetching specific post using id
+/**
+ * 
+ * @param {string} id 
+ * @returns 
+ */
 export async function get_specificPost(id) {
     const token = load("token");
-    const getPostUrl = `${BASE_URL}${updateUrl}/${id}`;
+    const getPostUrl = `${BASE_URL}${updateUrl}/${id}?_author=true&_reactions=true`;
 
     const response = await fetch(getPostUrl, {
         method,

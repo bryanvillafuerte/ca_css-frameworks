@@ -1,3 +1,9 @@
+/**
+ * Register user 
+ * @param {string} url
+ * @param {object} profile
+ * @returns
+ */
 
 const method = "post";
 
