@@ -15,11 +15,12 @@ export function loginUser() {
             password: password,
         };
         // Send it to API
-        login(API_LOGIN_URL, profile);
-
-        localStorage.setItem("user", JSON.stringify(profile));
-        
-        window.location.replace("/home.html")
+        if (login(API_LOGIN_URL, profile)) {
+            console.log('login() succees');
+            window.location.replace("/home.html")
+        }else {
+            console.log('failed to login()');
+        }
     });
 
 }
@@ -30,5 +31,3 @@ export function loginUser() {
 // password: "enirose123"
 // id: 49
 // accessToken: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDksIm5hbWUiOiJFbmkxMjMiLCJlbWFpbCI6ImVua
-// accessToken: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDksIm5hbWUiOiJFbmkxMjMiLCJlbWFpbCI6ImVuaXJ
-// accessToken: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDksIm5hbWUiOiJFbmkxMjMiLCJlbWFpbCI6ImVuaXJvc2VAbm9yb2ZmLm5vI
