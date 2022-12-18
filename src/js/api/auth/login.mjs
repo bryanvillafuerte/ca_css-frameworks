@@ -3,6 +3,8 @@ import * as storage from "../../storage/localstorage.mjs"
 const method = "post";
 
 export async function login(url, profile) {
+    console.log('logging in...');
+    
     const response = await fetch(url, {
         method,
         headers: {
@@ -13,11 +15,17 @@ export async function login(url, profile) {
 
     const {accessToken, ...user} = await response.json();
 
+    console.log('response:');
+    console.log(response.text);
+
+    if (response.status == 200) {
+        storage.save("token", accessToken);
+        storage.save("profile", user);
+        return true;
+    }else {
+        console.error('Failed to login. Response: ' + response.text);
+    }
+
     // localStorage.setItem("token", result.accessToken);
-    
-    storage.save("token", accessToken)
-
-    storage.save("profile", user)
-
-    alert("You are now Logged in")
+    return false;
 }
