@@ -13,7 +13,6 @@ if (path === '/index.html' || path === '/') {
 } else if (path === '/registration.html'){
     handlerListener.registerForm();
 } else if (path === '/post/create/' || path === '/home.html' || path === '/profile.html'){
-    console.log('running home');
     handlerListener.runHome();
 } else if (path === '/post/edit/'){
     handlerListener.updateFormListener();

@@ -3,6 +3,7 @@ import { login } from "../api/auth/login.mjs";
 import { API_LOGIN_URL } from "../api/auth/constants.mjs";
 
 export function loginUser() {
+
     const form = document.querySelector("#loginForm");
 
     form.addEventListener("submit", (event) => {
@@ -16,10 +17,9 @@ export function loginUser() {
         };
         // Send it to API
         if (login(API_LOGIN_URL, profile)) {
-            console.log('login() succees');
             window.location.replace("/home.html")
         }else {
-            console.log('failed to login()');
+            console.log('Failed to login');
         }
     });
 

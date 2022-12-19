@@ -12,10 +12,9 @@ const method = "get";
  */
 
 export async function getPosts() {
-    console.log('getPosts running');
 
     const token = load("token");
-    
+
     const getPostUrl = `${BASE_URL}${updateUrl}?_author=true&_reactions=true`;
 
     const response = await fetch(getPostUrl, {
@@ -25,9 +24,6 @@ export async function getPosts() {
             "Authorization": `Bearer ${token}`,
         },
     });
-
-    console.log('response = ');
-    console.log(response);
 
     // const json = await response.json();
     const postResult = await response.json();
