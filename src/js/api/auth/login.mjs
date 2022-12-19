@@ -15,16 +15,13 @@ export async function login(url, profile) {
 
     const {accessToken, ...user} = await response.json();
 
-    console.log('response:');
-    console.log(response.text);
-
     if (response.status == 200) {
         storage.save("token", accessToken);
         storage.save("profile", user);
         window.location.replace("/home.html")
         return true;     
     }else {
-        console.error('Failed to login. Response: ' + response.text);
+        console.error("Failed to login!");
     }
 
     // localStorage.setItem("token", result.accessToken);
