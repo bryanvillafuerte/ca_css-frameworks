@@ -12,18 +12,18 @@ export function load (key) {
     }
 }
 
-// export function getUser () {
-//     try {
-//         const user = localStorage.getItem("user");
-//         return JSON.parse(user);
-//     } catch {
-//         return null
-//     }
-// }
+export function getUser () {
+    try {
+        const user = localStorage.getItem("user");
+        return JSON.parse(user);
+    } catch {
+        return null
+    }
+}
 
-// export function remove (key) {
-//     localStorage.removeItem("accessToken");
-// }
+export function remove (key) {
+    localStorage.removeItem("accessToken");
+}
 
 export function SignOut () {
     localStorage.removeItem("accessToken");
