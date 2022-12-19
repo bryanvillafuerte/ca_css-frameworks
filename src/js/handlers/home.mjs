@@ -14,6 +14,7 @@ export async function runHome() {
         userPosts = await getPosts();
         buildPostsHTML(userPosts);
     }
+    
 
     function buildPostsHTML(posts) {
         const allPostsContainer = document.querySelector("#postsContainer");
@@ -24,17 +25,20 @@ export async function runHome() {
         posts.forEach(function (post) {
             const { id, author, title, body, media, tags } = post;
             
+            // checking if post has image on their post
             let img ="";
             if  (media !== "" && media != null) {
                 img = `<img class="mb-4 " src="${media}">`;
             }
 
+            // feching tags used by the user on their posts
             if (tags === false) {
                 tags.map ((tag) => {
                     if (tag != "" && tag != null) {
                         const foundUserTag = sortedUserTags.find ((t) => {
                             return t.tag === tag;
                         });
+
                         if (foundUserTag != null) {
                             const value = object.keys(sortedUserTags).find((k) => {
                                 return sortedUserTags[k].tag === tag;                                
@@ -129,14 +133,14 @@ export async function runHome() {
     createFormListener();
 
     // Filter option
-    const filterTheTags = document.querySelector("#tagFilterBox");
-    filterTheTags.onchange = function() {
-        const selectedTagElement = filterTheTags.value;
-        getPostByTagElement(selectedTagElement);
+    const filterTag = document.querySelector("#tagFilterBox");
+    filterTag.onchange = function() {
+        const selectedTagElement = filterTag.value;
+        fetchPostByTagElement(selectedTagElement);
     };
 
     // Fetching posts by users tag
-    async function getPostByTagElement(tag) {
+    async function fetchPostByTagElement(tag) {
         let queryParam ="";
         if (tag != 0) {
             queryParam = `&_tag=${tag}`;
@@ -145,12 +149,12 @@ export async function runHome() {
         const tagData = await getPostByTagElement(queryParam);
         userPosts = tagData;
         if (term != "") {
-            const filteredSearchPosts = userPosts.filter(function(post) { 
+            const filteredSearchPosts = userPosts.filter((post) => { 
                 const { title, author, body } = post;
 
                 return (
-                    title.toLowerCase().includes(term)||
-                    author.name.toLowerCase().includes(term)||
+                    title.toLowerCase().includes(term) ||
+                    author.name.toLowerCase().includes(term) ||
                     (body != null && body.toLowerCase().includes(term))
                 );
             });
@@ -161,12 +165,12 @@ export async function runHome() {
         
     }
 
-    // Fetching Users search input
+    // Fetching posts or data from Search input
     const search = document.querySelector("#searchBar");
     search.oninput = function() {
         term = search.value.toLowerCase();
         if(term != "") {
-            const filteredSearchPosts = userPosts.filter(function(post) { 
+            const filteredSearchPosts = userPosts.filter((post) => { 
                 const { title, author, body } = post;
 
                 return (

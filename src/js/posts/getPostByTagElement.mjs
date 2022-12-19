@@ -16,7 +16,7 @@ export async function getPostByTagElement(queryParam) {
 
     const token = load("token");
 
-    const getPostUrl = `${BASE_URL}${updateUrl}?_author=true&reactions=true&_tag=${queryParam}`;
+    const getPostUrl = `${BASE_URL}${updateUrl}?_author=true&reactions=true${queryParam}`;
 
     const response = await fetch(getPostUrl, {
         method,
