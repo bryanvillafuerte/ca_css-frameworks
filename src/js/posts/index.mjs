@@ -5,3 +5,4 @@ export * from "./deletePost.mjs";
 export * from "./getProfile.mjs"
 export * from "./getUserPosts.mjs"
 export * from "./getPosts.mjs"
+export * from "./getPostByTagElement.mjs"

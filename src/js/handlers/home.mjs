@@ -3,9 +3,10 @@ import { getPosts } from "../posts/getPosts.mjs";
 // import { userNotAuthenticate, newProfileUser } from "../functions/functions.mjs";
 import { SignOut } from "../storage/localstorage.mjs";
 import { tagElement } from "../functions/functions.mjs";
+import { getPostByTagElement } from "../posts/getPostByTagElement.mjs";
 
 export async function runHome() {
-    // let userPosts = [];
+    let userPosts = [];
     let term = "";
 
     // Get all post
@@ -38,7 +39,7 @@ export async function runHome() {
                             const value = object.keys(sortedUserTags).find((k) => {
                                 return sortedUserTags[k].tag === tag;                                
                             });
-                            sortedUserTags[key].total += 1;
+                            sortedUserTags[value].total += 1;
                         } else {
                             sortedUserTags.push({tag: tag, total: 1 });
                         }
@@ -127,14 +128,25 @@ export async function runHome() {
 
     createFormListener();
 
-    // const tag
+    // Filter option
+    const filterTheTags = document.querySelector("#tagFilterBox");
+    filterTheTags.onchange = function() {
+        const selectedTagElement = filterTheTags.value;
+        getPostByTagElement(selectedTagElement);
+    };
 
-    const search = document.querySelector("#searchBar");
-    search.oninput = function() {
-        term= search.value.toLowerCase();
-        if(term != "") {
-            const searchPosts = userPosts.filter(function(post) { 
-                const { title,author, body } = post;
+    // Fetching posts by users tag
+    async function getPostByTagElement(tag) {
+        let queryParam ="";
+        if (tag != 0) {
+            queryParam = `&_tag=${tag}`;
+        }
+
+        const tagData = await getPostByTagElement(queryParam);
+        userPosts = tagData;
+        if (term != "") {
+            const filteredSearchPosts = userPosts.filter(function(post) { 
+                const { title, author, body } = post;
 
                 return (
                     title.toLowerCase().includes(term)||
@@ -142,7 +154,28 @@ export async function runHome() {
                     (body != null && body.toLowerCase().includes(term))
                 );
             });
-            buildPostsHTML(searchPosts, true);
+            buildPostsHTML(filteredSearchPosts, true);
+        } else {
+            buildPostsHTML(userPosts, true);
+        }
+        
+    }
+
+    // Fetching Users search input
+    const search = document.querySelector("#searchBar");
+    search.oninput = function() {
+        term = search.value.toLowerCase();
+        if(term != "") {
+            const filteredSearchPosts = userPosts.filter(function(post) { 
+                const { title, author, body } = post;
+
+                return (
+                    title.toLowerCase().includes(term)||
+                    author.name.toLowerCase().includes(term)||
+                    (body != null && body.toLowerCase().includes(term))
+                );
+            });
+            buildPostsHTML(filteredSearchPosts, true);
         } else {
             buildPostsHTML(userPosts, true);
         }
@@ -151,6 +184,4 @@ export async function runHome() {
     // User log-out
     const SignOutBtn = document.querySelector("#signOut");
     SignOutBtn.onclick = SignOut;
-
-    let userPosts = [];
 }
