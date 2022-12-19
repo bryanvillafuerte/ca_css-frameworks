@@ -1,21 +1,16 @@
 import { createPost } from "../posts/create.mjs";
 import { getPosts } from "../posts/getPosts.mjs";
-import { userNotAuthenticate, newProfileUser } from "../functions/functions.mjs";
+// import { userNotAuthenticate, newProfileUser } from "../functions/functions.mjs";
 import { SignOut } from "../storage/localstorage.mjs";
-
+import { tagElement } from "../functions/functions.mjs";
 
 export async function runHome() {
-        // userNotAuthenticate();
-    // newProfileUser();
-
-    let userPosts = [];
+    // let userPosts = [];
+    let term = "";
 
     // Get all post
     async function getAllPosts() {
-        console.log('getAllPosts()');
-
         userPosts = await getPosts();
-
         buildPostsHTML(userPosts);
     }
 
@@ -23,45 +18,87 @@ export async function runHome() {
         const allPostsContainer = document.querySelector("#postsContainer");
         allPostsContainer.innerHTML = "";
         
-        let sortedTags;
+        let sortedUserTags = [];
 
         posts.forEach(function (post) {
             const { id, author, title, body, media, tags } = post;
             
             let img ="";
             if  (media !== "" && media != null) {
-                img = `<img class="mb-4" src="${media}">`;
+                img = `<img class="mb-4 " src="${media}">`;
+            }
+
+            if (tags === false) {
+                tags.map ((tag) => {
+                    if (tag != "" && tag != null) {
+                        const foundUserTag = sortedUserTags.find ((t) => {
+                            return t.tag === tag;
+                        });
+                        if (foundUserTag != null) {
+                            const value = object.keys(sortedUserTags).find((k) => {
+                                return sortedUserTags[k].tag === tag;                                
+                            });
+                            sortedUserTags[key].total += 1;
+                        } else {
+                            sortedUserTags.push({tag: tag, total: 1 });
+                        }
+                    }
+                });
             }
 
             allPostsContainer.innerHTML +=
-                ` <a href="single.html?id=${id}
-                <div class="d-flex flex-start w-100">
-                    <img class="rounded-circle shadow-1-strong me-3"
-                        src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(29).webp" alt="avatar" width="60" height="60" />
-                    <div>
-                        <h6 class="fw-bold mb-1">${author.name}</h6>
+            `<a href="post.html?id=${id}
+                <div class="row">
+                    <div class="col-lg-12 mt-3">
+                        <div class="card"> 
+                            <div class="card-body mb-4">
+                                <div class="justify-content  flex-start w-100">
+                                    <img class="rounded-circle shadow-1-strong me-3"
+                                    src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(29).webp" alt="avatar" width="60" height="60" />
+                                    <div>
+                                        <h6 class="fw-bold mb-1">${author.name}</h6>
+                                    </div>
+                                </div>  
+
+                                <h6 class="fw-bold mb-1">${title}</h6> 
+                                <p class="mt-3 mb-4 pb-2">${body}</p>
+                                <p class="mt-3 mb-4 pb-2">${img}</p>
+
+                                <div class="small d-flex justify-content-start">${tagElement(tags)}      
+                                </div>
+
+                                <div class="small d-flex justify-content-start">
+                                    <a href="#!" class="d-flex align-items-center me-3">
+                                        <i class="far fa-thumbs-up me-2"></i>
+                                        <p class="mb-0">Like</p>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <h6 class="fw-bold mb-1">${title}</h6> 
-                <p class="mt-3 mb-4 pb-2">${body}</p>
-                <p class="mt-3 mb-4 pb-2">${img}</p>
-
-                <div class="small d-flex justify-content-start">${tags}      
-                </div>
-
-                <div class="small d-flex justify-content-start">
-                    <a href="#!" class="d-flex align-items-center me-3">
-                        <i class="far fa-thumbs-up me-2"></i>
-                        <p class="mb-0">Like</p>
-                    </a>
-                </div>
-            </a> `;
-
+            </a>`;       
+    
         });
+
+        if (tags === false) {
+            sortedUserTags = sortedUserTags.sort((a, b) => {
+                if (a.total > b.total) return -1;
+                if (a.total > b.total) return 1;
+                return 0;
+            });
+            const mainTags = sortedUserTags.slice(0, 3);
+            const selectedTagElement = document.querySelector("#tagFilterBox");
+            mainTags.forEach((tag) => {
+                selectedTagElement.innerHTML += `<option value="${tag.tag}">${tag.tag}</option>`;
+            });
+        }
     }
 
     getAllPosts();
+
+    // Creating new post
 
     async function createFormListener() {
 
@@ -88,10 +125,32 @@ export async function runHome() {
         }));
     }
 
+    createFormListener();
 
-    createFormListener();    
+    // const tag
+
+    const search = document.querySelector("#searchBar");
+    search.oninput = function() {
+        term= search.value.toLowerCase();
+        if(term != "") {
+            const searchPosts = userPosts.filter(function(post) { 
+                const { title,author, body } = post;
+
+                return (
+                    title.toLowerCase().includes(term)||
+                    author.name.toLowerCase().includes(term)||
+                    (body != null && body.toLowerCase().includes(term))
+                );
+            });
+            buildPostsHTML(searchPosts, true);
+        } else {
+            buildPostsHTML(userPosts, true);
+        }
+    };
 
     // User log-out
     const SignOutBtn = document.querySelector("#signOut");
     SignOutBtn.onclick = SignOut;
+
+    let userPosts = [];
 }

@@ -21,11 +21,13 @@ export async function login(url, profile) {
     if (response.status == 200) {
         storage.save("token", accessToken);
         storage.save("profile", user);
-        return true;
+        window.location.replace("/home.html")
+        return true;     
     }else {
         console.error('Failed to login. Response: ' + response.text);
     }
 
     // localStorage.setItem("token", result.accessToken);
     return false;
+
 }
