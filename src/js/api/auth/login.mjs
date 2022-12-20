@@ -12,18 +12,17 @@ export async function login(url, profile) {
         body: JSON.stringify(profile),
     });
 
-    const {accessToken, ...user} = await response.json();
+    const json = await response.json();
+    const {accessToken, ...user} = json;
 
     if (response.status == 200) {
         storage.save("token", accessToken);
         storage.save("profile", user);
-        window.location.replace("/home.html")
-        return true;     
-    }else {
-        console.error("Failed to login!");
+             
+        window.location.replace("/home.html")   
+        return response;   
+    } else {
+        return false;
     }
-
-    // localStorage.setItem("token", result.accessToken);
-    return false;
-
+    
 }

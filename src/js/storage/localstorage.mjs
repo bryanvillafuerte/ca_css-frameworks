@@ -13,7 +13,7 @@ export function load (key) {
 }
 
 export function getUser () {
-    const user = localStorage.getItem("user");
+    const user = localStorage.getItem("profile");
     return JSON.parse(user);
 }
 
@@ -22,6 +22,9 @@ export function remove (key) {
 }
 
 export function SignOut () {
+    localStorage.removeItem("profile");
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
     localStorage.removeItem("accessToken");
     window.location.replace("/index.html");
 }

@@ -16,11 +16,7 @@ export function loginUser() {
             password: password,
         };
         // Send it to API
-        if (login(API_LOGIN_URL, profile)) {
-            window.location.replace("/home.html")
-        }else {
-            console.log('Failed to login');
-        }
+        login(API_LOGIN_URL, profile);
     });
 
 }
