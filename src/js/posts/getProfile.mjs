@@ -15,7 +15,7 @@ export async function getProfile(name) {
     const token = load("token");
     const getPostUrl = `${BASE_URL}${updateUrl}/profiles/${name}?_followers=true`;
 
-    const response = await fetch(getProfile, {
+    const response = await fetch(getPostUrl, {
         method,
         headers: {
             "Content-Type": "application/json",

@@ -14,7 +14,7 @@ export async function updatePost(body) {
     const token = load("token");
     const updatePostUrl = `${BASE_URL}${updateUrl}/${id}`;
 
-    const response = await fetch(updatePost, {
+    const response = await fetch(updatePostUrl, {
         method,
         headers: {
             "Content-Type": "application/json",

@@ -16,7 +16,7 @@ export async function getUserPosts(name) {
     const token = load("token");
     const getPostUrl = `${BASE_URL}${updateUrl}/profiles/${name}/posts?_reactions=true`;
 
-    const response = await fetch(getUserPosts, {
+    const response = await fetch(getPostUrl, {
         method,
         headers: {
             "Content-Type": "application/json",

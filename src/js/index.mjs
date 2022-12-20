@@ -12,9 +12,9 @@ if (path === '/index.html' || path === '/') {
     handlerListener.loginUser();
 } else if (path === '/registration.html'){
     handlerListener.registerForm();
-} else if (path === '/post/create/' || path === '/home.html' || path === '/profile.html'){
+} else if (path === '/home.html' || path === '/profile.html'){
     handlerListener.runHome();
-} else if (path === '/post/edit/' || path === '/post.html'){
+} else if (path === '/post.html' || path === '/post/edit/'){
     handlerListener.updateFormListener();
     handlerListener.runSinglePost();
 } 

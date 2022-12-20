@@ -1,5 +1,9 @@
-import { get_specificPost } from "../posts/index.mjs"
+import { get_specificPost, removePost } from "../posts/index.mjs"
 import { getUser } from "../storage/localstorage.mjs";
+import { updatePost } from "../posts/index.mjs";
+import { tagElement } from "../functions/functions.mjs";
+import { SignOut } from "../storage/localstorage.mjs";
+
 
 export async function runSinglePost () {
     const queryString = document.location.search;
@@ -7,12 +11,12 @@ export async function runSinglePost () {
     const id = param.get("id");
 
     async function getPost() {
-        postID = await get_specificPost(id);
+        const postID = await get_specificPost(id);
         buildPostsHTML(postID);
     }
 
     function buildPostsHTML (post) {
-        const allPostsContainer = document.querySelector("#postContainer");
+        const allPostsContainer = document.querySelector("#postsContainer");
         const { author, title, body, media, tags } = post;
 
         allPostsContainer.innerHTML = "";
@@ -42,7 +46,7 @@ export async function runSinglePost () {
                         </div>  
 
                         <h6 class="fw-bold mb-1">${title}</h6> 
-                        p class="mt-3 mb-4 pb-2">${body}</p>
+                        <p class="mt-3 mb-4 pb-2">${body}</p>
                         <p class="mt-3 mb-4 pb-2">${img}</p>
 
                         <div class="small d-flex justify-content-start">${tagElement(tags)}      
@@ -70,8 +74,70 @@ export async function runSinglePost () {
         tagsForm.value = tags.join(",");
     }
     getPost();
+
+    async function updateFormListener() {
+        const form = document.querySelector("#updatePost");
+        const url = new URL(location.href);
+        const id = url.searchParams.get("id");
+
+        if (form) {
+            const button = form.querySelector("button");
+            button.disabled = true;
+
+            const post = await get_specificPost(id);
+
+            form.title.value = post.title;
+            form.body.value = post.body;
+            form.tags.value = post.tags;
+            form.media.value = post.media;
+
+            button.disabled = false;
+
+            form.addEventListener("submit", (async function (event) {
+                event.preventDefault();
+                const form = event.target;
+                const title = form.title.value;
+                const body = form.body.value;
+                const tags = form.tags.value;
+                const media = form.media.value;
+                const post = {
+                    title: title,
+                    body: body,
+                    tags: tags,
+                    media: media,
+                };
+
+                post.id = id;
+                post.tags = post.tags.split(",");
+            
+                // Send it to API
+                await updatePost();
+                form.reset();
+                getPost();
+
+            }));
+        }
+        
+    }
+    updateFormListener();
+    
+
+    const deletePostBtn = document.querySelector("#deleteBtn");
+    deletePostBtn.onclick = async function() {
+        const postID = await removePost(id);
+        if (postID === 204) {
+            window.location.replace("/home.html");
+        } else {
+            console.log(error);
+        }
+    };
+
+    
+    // user sign-out
+    const SignOutBtn = document.querySelector("#signOut");
+    SignOutBtn.onclick = SignOut;
+   
 }   
-console.log(runSinglePost);
 
 
 
