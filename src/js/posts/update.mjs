@@ -24,4 +24,5 @@ export async function updatePost(body) {
     });
     const postResult = await response.json();
     return postResult
+
 }

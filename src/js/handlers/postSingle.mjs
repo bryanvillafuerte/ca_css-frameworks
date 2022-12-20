@@ -38,11 +38,13 @@ export async function runSinglePost () {
                 <div class="card"> 
                     <div class="card-body mb-4">
                         <div class="justify-content  flex-start w-100">
+                        <a href="profile.html?name=${author.name}">
                             <img class="rounded-circle shadow-1-strong me-3"
                             src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(29).webp" alt="avatar" width="60" height="60" />
                             <div>
                                 <h6 class="fw-bold mb-1">${author.name}</h6>
                             </div>
+                        </a>
                         </div>  
 
                         <h6 class="fw-bold mb-1">${title}</h6> 
