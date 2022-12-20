@@ -13,7 +13,7 @@ const method = "get";
 export async function get_specificPost(id) {
     const token = load("token");
     const getPostUrl = `${BASE_URL}${updateUrl}/${id}?_author=true&_reactions=true`;
-
+    
     const response = await fetch(getPostUrl, {
         method,
         headers: {
@@ -25,4 +25,5 @@ export async function get_specificPost(id) {
     // const json = await response.json();
     const postResult = await response.json();
     return postResult
+    
 }

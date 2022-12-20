@@ -13,7 +13,7 @@ export async function runProfilePage()  {
         const postData = await getProfile(name);
         userProfilePage(postData)
     }
-    
+    getPostProfile()
 
     async function userProfilePage(userInfoData) {
         const { name, email } = userInfoData;
@@ -31,8 +31,8 @@ export async function runProfilePage()  {
         const singleUserPosts = document.querySelector("#profilePostContainer");
         singleUserPosts.innerHTML= "";
 
-        postInfo.forEach(function(post) {
-            const { author, title, body, media, tags } = post;
+        postInfo.forEach (function (post) {
+            const { id, title, body, media, tags } = post;
 
             let img = "";
             if (media != "" && media != null) {
@@ -48,11 +48,7 @@ export async function runProfilePage()  {
                                 <div class="justify-content  flex-start w-100">
                                     <img class="rounded-circle shadow-1-strong me-3"
                                     src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(29).webp" alt="avatar" width="60" height="60" />
-                                    <div>
-                                        <h6 class="fw-bold mb-1">${author.name}</h6>
-                                    </div>
                                 </div>  
-
                                 <h6 class="fw-bold mb-1">${title}</h6> 
                                 <p class="mt-3 mb-4 pb-2">${body}</p>
                                 <p class="mt-3 mb-4 pb-2">${img}</p>
@@ -70,13 +66,10 @@ export async function runProfilePage()  {
                         </div>
                     </div>
                 </div>
-
             </a>`
-        });
-        
+        });       
     }
-    // buildUserProfileHTML();
-    getPostProfile();
+    buildUserProfileHTML();
     
 
     // User log-out
