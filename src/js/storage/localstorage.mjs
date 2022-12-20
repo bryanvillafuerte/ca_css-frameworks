@@ -13,12 +13,8 @@ export function load (key) {
 }
 
 export function getUser () {
-    try {
-        const user = localStorage.getItem("user");
-        return JSON.parse(user);
-    } catch {
-        return null
-    }
+    const user = localStorage.getItem("user");
+    return JSON.parse(user);
 }
 
 export function remove (key) {

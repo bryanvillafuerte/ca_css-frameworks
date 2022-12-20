@@ -52,7 +52,7 @@ export async function runHome() {
             }
 
             allPostsContainer.innerHTML +=
-            `<a href="post.html?id=${id}
+            `<a href="post.html?id=${id}">
                 <div class="row">
                     <div class="col-lg-12 mt-3">
                         <div class="card"> 
