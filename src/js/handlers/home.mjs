@@ -10,7 +10,7 @@ export async function runHome() {
     let term = "";
 
     // Get all post
-    async function getAllPosts() {
+    async function getAllPostsToHome() {
         userPosts = await getPosts();
         buildPostsHTML(userPosts);
     }
@@ -101,7 +101,7 @@ export async function runHome() {
         }
     }
 
-    getAllPosts();
+    getAllPostsToHome();
 
     // Creating new post
 
@@ -126,7 +126,7 @@ export async function runHome() {
             // Send it to API
             await createPost(post);
             form.reset();
-            getAllPosts();
+            getAllPostsToHome();
         }));
     }
 
