@@ -8,7 +8,8 @@ import { SignOut } from "../storage/localstorage.mjs";
 export async function runSinglePost () {
     const queryString = document.location.search;
     const param = new URLSearchParams(queryString);
-    const id = param.get("id");
+    let id = param.get("id");
+
 
     async function getPost() {
         const postID = await get_specificPost(id);
@@ -77,10 +78,26 @@ export async function runSinglePost () {
     }
     getPost();
 
+    // updating/editing a post
+
     async function updateFormListener() {
         const form = document.querySelector("#updatePost");
+        const editingBtn = document.querySelector("#editBtn");
+        const cancelBtn = document.querySelector("#cancel-Btn");
+
         const url = new URL(location.href);
         const id = url.searchParams.get("id");
+
+        editingBtn.onclick = function() {
+            form.classList.remove("hidden");
+        };
+
+        cancelBtn.onclick = function(event) {
+            event.preventDefault();
+            form.classList.add("hidden");
+        };
+
+
 
         if (form) {
             const button = form.querySelector("button");
@@ -113,7 +130,7 @@ export async function runSinglePost () {
                 post.tags = post.tags.split(",");
             
                 // Send it to API
-                await updatePost();
+                await updatePost(post, id);
                 form.reset();
                 getPost();
 
@@ -124,6 +141,7 @@ export async function runSinglePost () {
     updateFormListener();
     
 
+    // delete button to delete a post
     const deletePostBtn = document.querySelector("#deleteBtn");
     deletePostBtn.onclick = async function() {
         const postID = await removePost(id);
@@ -133,6 +151,8 @@ export async function runSinglePost () {
             console.log(error);
         }
     };
+
+
 
     
     // user sign-out
