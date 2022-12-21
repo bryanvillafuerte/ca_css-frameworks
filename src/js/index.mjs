@@ -14,6 +14,7 @@ if (path === '/index.html' || path === '/') {
     handlerListener.registerForm();
 } else if (path === '/home.html'){
     handlerListener.runHome();
+    // handlerListener.createFormListener();
 } else if (path === '/post.html'){
     // handlerListener.updateFormListener();
     handlerListener.runSinglePost();

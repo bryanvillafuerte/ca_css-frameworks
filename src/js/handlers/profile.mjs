@@ -6,7 +6,7 @@ import { tagElement } from "../functions/functions.mjs";
 export async function runProfilePage()  {
     const  queryString = document.location.search;
     const param = new URLSearchParams(queryString);
-    const name = param.get("name");
+    let name = param.get("name");
 
     //fetching user/'s profile
     async function getPostProfile() {
@@ -66,7 +66,7 @@ export async function runProfilePage()  {
                         </div>
                     </div>
                 </div>
-            </a>`
+            </a>`;
         });       
     }
     buildUserProfileHTML();
