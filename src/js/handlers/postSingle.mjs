@@ -1,7 +1,7 @@
 import { get_specificPost, removePost } from "../posts/index.mjs"
 import { getUser } from "../storage/localstorage.mjs";
 import { updatePost } from "../posts/index.mjs";
-import { tagElement } from "../functions/functions.mjs";
+import { newProfileUser, tagElement } from "../functions/functions.mjs";
 import { SignOut } from "../storage/localstorage.mjs";
 
 
@@ -9,6 +9,8 @@ export async function runSinglePost () {
     const queryString = document.location.search;
     const param = new URLSearchParams(queryString);
     let id = param.get("id");
+
+    newProfileUser();
 
 
     async function getPost() {

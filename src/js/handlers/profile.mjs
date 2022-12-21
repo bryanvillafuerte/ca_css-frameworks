@@ -1,32 +1,38 @@
 import { getUserPosts } from "../posts/getUserPosts.mjs";
 import { getProfile } from "../posts/getProfile.mjs";
 import { SignOut } from "../storage/localstorage.mjs";
-import { tagElement } from "../functions/functions.mjs";
+import { newProfileUser, tagElement } from "../functions/functions.mjs";
 
 export async function runProfilePage()  {
     const  queryString = document.location.search;
     const param = new URLSearchParams(queryString);
     let name = param.get("name");
 
-    //fetching user/'s profile
+    newProfileUser();
+
+    //fetching user profile
     async function getPostProfile() {
         const postData = await getProfile(name);
         userProfilePage(postData)
     }
-    getPostProfile()
+    getPostProfile();
 
+    // user info
     async function userProfilePage(userInfoData) {
         const { name, email } = userInfoData;
         const userProfileName = document.querySelector("#user-Name");
         const userProfileEmail = document.querySelector("#user-Email");
 
         userProfileName.innerHTML = name;
+
         userProfileEmail.innerHTML = email;
     }
 
     // Getting/Fetching user's post by name
     async function  buildUserProfileHTML () {
         const postInfo = await getUserPosts(name);
+
+        // users posts data into profile page
 
         const singleUserPosts = document.querySelector("#profilePostContainer");
         singleUserPosts.innerHTML= "";
@@ -38,6 +44,7 @@ export async function runProfilePage()  {
             if (media != "" && media != null) {
                 img = `<img class="mb-4" src="${media}">`;
             }
+        
 
             singleUserPosts.innerHTML +=
             `<a href="post.html?id=${id}">

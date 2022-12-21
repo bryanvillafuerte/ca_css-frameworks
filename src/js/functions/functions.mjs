@@ -1,4 +1,4 @@
-import { load } from "../storage/localstorage.mjs";
+import { getUser } from "../storage/localstorage.mjs";
 
 export function userAuthenticate() {
     const token = localStorage.getItem("accessToken");
@@ -16,10 +16,11 @@ export function userNotAuthenticate() {
 };
 
 export function newProfileUser () {
-    const user = load();
+    const user = getUser();
     const profilePage = document.querySelector("#profilePage");
     profilePage.href += `?name=${user.name}`;
 };
+
 
 export function tagElement (tags) {
     let tagtemplate = "";

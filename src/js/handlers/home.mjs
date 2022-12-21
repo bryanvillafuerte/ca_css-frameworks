@@ -1,13 +1,14 @@
 import { createPost } from "../posts/create.mjs";
 import { getPosts } from "../posts/getPosts.mjs";
-// import { userNotAuthenticate, newProfileUser } from "../functions/functions.mjs";
 import { SignOut } from "../storage/localstorage.mjs";
-import { tagElement } from "../functions/functions.mjs";
+import { newProfileUser, tagElement } from "../functions/functions.mjs";
 import { getPostByTagElement } from "../posts/getPostByTagElement.mjs";
 
 export async function runHome() {
     let userPosts = [];
     let term = "";
+
+    newProfileUser();
 
     // Get all post
     async function getAllPostsToHome() {
