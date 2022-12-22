@@ -83,7 +83,7 @@ export async function runSinglePost () {
     getPost();
 
     // updating/editing a post
-    const form = document.querySelector("#updatePost");
+    // const form = document.querySelector("#updatePost");
     // const editingBtn = document.querySelector("#editBtn");
     // const cancelBtn = document.querySelector("#cancel-Btn");
 
@@ -134,17 +134,20 @@ export async function runSinglePost () {
                 post.tags = post.tags.split(",");
             
                 // Send it to API
+                
                 await updatePost(post, id);
-                form.reset();
-                getPost();
                 runSinglePost();
+                // getPost();
 
             }));
+            
         }
+        // form.reset();
 
         
     }
     updateFormListener();
+    
     
     
 
