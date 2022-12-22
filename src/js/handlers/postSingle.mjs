@@ -24,6 +24,8 @@ export async function runSinglePost () {
 
         allPostsContainer.innerHTML = "";
 
+        // checking if user/s post has a media to display
+
         let img = "";
         if (media !== "" && media != null) {
             img = `<img class="mb-4" src="${media}">`;
@@ -31,7 +33,7 @@ export async function runSinglePost () {
         
         const signedInUser = getUser();
         if (signedInUser.name === author.name) {
-            const singlePostBtn = document.querySelector("#btns");
+            const singlePostBtn = document.querySelector("#buttons");
             singlePostBtn.classList.remove("hidden");
         }
 
@@ -81,25 +83,25 @@ export async function runSinglePost () {
     getPost();
 
     // updating/editing a post
+    const form = document.querySelector("#updatePost");
+    // const editingBtn = document.querySelector("#editBtn");
+    // const cancelBtn = document.querySelector("#cancel-Btn");
+
+    // const url = new URL(location.href);
+    // const id = url.searchParams.get("id");
+
+    // editingBtn.onclick = function() {
+    //     form.classList.remove("hidden");
+    // };
+
+    // cancelBtn.onclick = function(event) {
+    //     event.preventDefault();
+    //     form.classList.add("hidden");
+    // };
+
 
     async function updateFormListener() {
         const form = document.querySelector("#updatePost");
-        const editingBtn = document.querySelector("#editBtn");
-        const cancelBtn = document.querySelector("#cancel-Btn");
-
-        const url = new URL(location.href);
-        const id = url.searchParams.get("id");
-
-        editingBtn.onclick = function() {
-            form.classList.remove("hidden");
-        };
-
-        cancelBtn.onclick = function(event) {
-            event.preventDefault();
-            form.classList.add("hidden");
-        };
-
-
 
         if (form) {
             const button = form.querySelector("button");
@@ -135,12 +137,15 @@ export async function runSinglePost () {
                 await updatePost(post, id);
                 form.reset();
                 getPost();
+                runSinglePost();
 
             }));
         }
+
         
     }
     updateFormListener();
+    
     
 
     // delete button to delete a post
