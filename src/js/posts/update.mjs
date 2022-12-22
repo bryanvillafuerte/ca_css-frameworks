@@ -10,7 +10,7 @@ import { BASE_URL } from "../api/auth/constants.mjs";
 const updateUrl = `/social/posts`;
 const method = "put";
 
-export async function updatePost(body) {
+export async function updatePost(body, id) {
     const token = load("token");
     const updatePostUrl = `${BASE_URL}${updateUrl}/${id}`;
 
