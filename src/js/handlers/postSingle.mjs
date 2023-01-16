@@ -34,6 +34,12 @@ export async function runSinglePost () {
         
         const signedInUser = getUser();
         if (signedInUser.name === author.name) {
+            
+            // Which element(buttons) are you referring to here?
+            // It seems you are querying for an element with the id="buttons" but forgot to write
+            // the id in your markup.
+            // Take note that when you use # for your query, it means that you are referring to
+            // an element with a unique ID and can only be applied to a single element
             const singlePostBtn = document.querySelector("#buttons");
             singlePostBtn.classList.remove("hidden");
         }
