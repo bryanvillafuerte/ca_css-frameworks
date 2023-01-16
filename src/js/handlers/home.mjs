@@ -29,7 +29,7 @@ export async function runHome() {
             // checking if post has image on their post
             let img ="";
             if  (media !== "" && media != null) {
-                img = `<img class="mb-4 " src="${media}">`;
+                img = `<img class="mb-4 h-auto w-full" src="${media}">`;
             }
 
             // feching tags used by the user on their posts

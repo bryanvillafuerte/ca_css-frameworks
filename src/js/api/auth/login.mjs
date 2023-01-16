@@ -18,6 +18,9 @@ export async function login(url, profile) {
     if (response.status == 200) {
         storage.save("token", accessToken);
         storage.save("profile", user);
+        storage.save("accessToken",accessToken);
+        storage.save("user", user);
+
              
         window.location.replace("/home.html")   
         return response;   
